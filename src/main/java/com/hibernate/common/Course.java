@@ -18,7 +18,7 @@ public class Course implements Serializable {
     public Course() {
     }
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     public Instructor getInstructor() {
         return instructor;

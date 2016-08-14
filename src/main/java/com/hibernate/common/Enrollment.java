@@ -32,7 +32,7 @@ public class Enrollment implements Serializable{
         return trainingSessionId;
     }
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
     public TrainingSession getTrainingSession() {
         return trainingSession;

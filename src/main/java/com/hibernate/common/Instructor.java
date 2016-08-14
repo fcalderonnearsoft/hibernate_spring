@@ -2,6 +2,8 @@ package com.hibernate.common;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "instructor")
@@ -11,7 +13,7 @@ public class Instructor implements Serializable{
     private Integer trainingSessionId;
     private Integer user_id;
     private TrainingSession trainingSession;
-    private Course course;
+    private Set<Course> course = new HashSet<Course>();
 
     public Instructor() {
     }
@@ -22,7 +24,7 @@ public class Instructor implements Serializable{
         this.user_id = user_id;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(Set<Course> course) {
         this.course = course;
     }
 
@@ -49,8 +51,8 @@ public class Instructor implements Serializable{
         return id;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "instructor", cascade = CascadeType.ALL)
-    public Course getCourse() {
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor")
+    public Set<Course> getCourse() {
         return course;
     }
 

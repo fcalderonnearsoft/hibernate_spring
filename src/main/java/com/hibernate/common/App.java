@@ -12,22 +12,28 @@ public class App {
         session.beginTransaction();
         Course course = new Course();
 
-        course.setDescription("prueba");
-        course.setTitle("hola");
-        course.setId(778);
+        course.setDescription("pruba");
+        course.setTitle("hoa");
+        course.setId(22);
         course.setTeacherId(1);
-        course.setDurationInMinutes(10);
+        course.setDurationInMinutes(8);
 
-        session.save(course);
+        Instructor instructor = new Instructor();
+
+        instructor.setId(1);
+        instructor.setTrainingSessionId(8);
+        instructor.setUser_id(7);
+
+        course.setInstructor(instructor);
+        instructor.getCourse().add(course);
+
+        session.save(instructor);
         session.getTransaction().commit();
 
 
-//        session.beginTransaction();
-//        Stock stock1 = new Stock();
-//        stock1.setStockCode("9");
-//        stock1.setStockName("Po");
-//        session.save(stock1);
-//        session.getTransaction().commit();
+        session.beginTransaction();
+        session.save(course);
+        session.getTransaction().commit();
 
         session.close();
     }

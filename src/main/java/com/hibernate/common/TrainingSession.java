@@ -2,6 +2,7 @@ package com.hibernate.common;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -15,7 +16,7 @@ public class TrainingSession implements Serializable {
     private Course course;
     private ClassLocation classLocation;
     private Instructor instructor;
-    private Enrollment enrollment;
+    private Set<Enrollment> enrollment;
 
     public TrainingSession() {
     }
@@ -59,8 +60,8 @@ public class TrainingSession implements Serializable {
         return instructor;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "trainingSession", cascade = CascadeType.ALL)
-    public Enrollment getEnrollment() {
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "trainingSession")
+    public Set<Enrollment> getEnrollment() {
         return enrollment;
     }
 
@@ -92,7 +93,7 @@ public class TrainingSession implements Serializable {
         this.instructor = instructor;
     }
 
-    public void setEnrollment(Enrollment enrollment) {
+    public void setEnrollment(Set<Enrollment> enrollment) {
         this.enrollment = enrollment;
     }
 }
