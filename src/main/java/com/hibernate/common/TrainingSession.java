@@ -54,12 +54,12 @@ public class TrainingSession implements Serializable {
         return classLocation;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "training_session", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "trainingSession", cascade = CascadeType.ALL)
     public Instructor getInstructor() {
         return instructor;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "training_session", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "trainingSession", cascade = CascadeType.ALL)
     public Enrollment getEnrollment() {
         return enrollment;
     }

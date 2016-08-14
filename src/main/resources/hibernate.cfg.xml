@@ -19,7 +19,11 @@
         <property name="show_sql">true</property>
 
 
-        <mapping class="com.hibernate.common.Stock"></mapping>
+        <mapping class="com.hibernate.common.Course"></mapping>
+        <mapping class="com.hibernate.common.ClassLocation"></mapping>
+        <mapping class="com.hibernate.common.Enrollment"></mapping>
+        <mapping class="com.hibernate.common.Instructor"></mapping>
+        <mapping class="com.hibernate.common.TrainingSession"></mapping>
 
     </session-factory>
 </hibernate-configuration>

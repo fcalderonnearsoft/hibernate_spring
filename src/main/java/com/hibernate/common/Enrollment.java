@@ -1,8 +1,11 @@
 package com.hibernate.common;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-public class Enrollment {
+@Entity
+@Table(name = "enrollment")
+public class Enrollment implements Serializable{
 
     private Integer id;
     private Boolean attended;

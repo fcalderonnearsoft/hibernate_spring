@@ -1,8 +1,11 @@
 package com.hibernate.common;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-public class Instructor {
+@Entity
+@Table(name = "instructor")
+public class Instructor implements Serializable{
 
     private Integer id;
     private Integer trainingSessionId;
@@ -11,6 +14,12 @@ public class Instructor {
     private Course course;
 
     public Instructor() {
+    }
+
+    public Instructor(Integer id, Integer trainingSessionId, Integer user_id) {
+        this.id = id;
+        this.trainingSessionId = trainingSessionId;
+        this.user_id = user_id;
     }
 
     public void setCourse(Course course) {

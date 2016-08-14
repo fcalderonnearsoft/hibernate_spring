@@ -1,8 +1,11 @@
 package com.hibernate.common;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-public class ClassLocation {
+@Entity
+@Table(name = "class_location")
+public class ClassLocation implements Serializable{
     private Integer id;
     private String name;
     private String email;
@@ -28,7 +31,7 @@ public class ClassLocation {
         return email;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "class_location", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "classLocation", cascade = CascadeType.ALL)
     public TrainingSession getTrainingSession() {
         return trainingSession;
     }
