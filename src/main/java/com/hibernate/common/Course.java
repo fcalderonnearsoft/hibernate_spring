@@ -1,18 +1,31 @@
 package com.hibernate.common;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "course")
-public class Course {
+public class Course implements Serializable {
 
     private Integer id;
     private String title;
     private String description;
     private Integer durationInMinutes;
     private Integer teacherId;
+    private Instructor instructor;
+    private TrainingSession trainingSession;
 
     public Course() {
+    }
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     @Id
@@ -40,6 +53,15 @@ public class Course {
     @Column(name = "teacher_id")
     public Integer getTeacherId() {
         return teacherId;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "course", cascade = CascadeType.ALL)
+    public TrainingSession getTrainingSession() {
+        return trainingSession;
+    }
+
+    public void setTrainingSession(TrainingSession trainingSession) {
+        this.trainingSession = trainingSession;
     }
 
     public void setId(Integer id) {
