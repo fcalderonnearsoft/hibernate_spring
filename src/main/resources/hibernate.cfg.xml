@@ -8,13 +8,13 @@
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password"></property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Hibernate</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hbm</property>
 
 
 
         <property name="connection_pool_size">1</property>
 
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
 
         <property name="show_sql">true</property>
 

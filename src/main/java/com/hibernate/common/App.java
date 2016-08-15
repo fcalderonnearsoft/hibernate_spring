@@ -38,15 +38,11 @@ public class App {
         session.close();
     }
 
-    public void insertInstructorWithCourse(Instructor instructor, Course course){
+    public void insertInstructorWithCourse(Course course){
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();
 
-       course.setInstructor(instructor);
-       instructor.getCourse().add(course);
-
-        session.save(instructor);
         session.save(course);
         session.flush();
         session.getTransaction().commit();

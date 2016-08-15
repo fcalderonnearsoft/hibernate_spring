@@ -15,7 +15,7 @@ public class ClassLocation implements Serializable{
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
     public Integer getId() {
         return id;

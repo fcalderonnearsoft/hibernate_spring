@@ -15,21 +15,16 @@ public class AppTest {
     public void testInsertInstructorWithCourse(){
         Course course = new Course();
 
-        course.setDescription("cvv");
-        course.setTitle("ad");
-        course.setId(44);
-        course.setTeacherId(1);
+        course.setDescription("HOLO");
+        course.setTitle("HOLO");
+        course.setTeacherId(4);
         course.setDurationInMinutes(10);
 
-        Instructor instructor = new Instructor();
 
-        instructor.setId(19);
-        instructor.setTrainingSessionId(80);
-        instructor.setUser_id(7);
 
         App app = new App();
 
-        app.insertInstructorWithCourse(instructor, course);
+        app.insertInstructorWithCourse(course);
 //
 //        Session session = HibernateUtil.getSessionFactory().openSession();
 //        Query query = session.createQuery("from Instructor where id = :id");
