@@ -10,5 +10,12 @@
         </id>
         <property name="stockCode" column="STOCK_CODE" type="string"/>
         <property name="stockName" column="STOCK_NAME" type="string"/>
+
+        <one-to-one name="proteinData" class="com.hibernate.common.ProteinData" cascade="save-update"/>
+        <list name="stockHistoryList" table="stockhistory" inverse="true" cascade="save-update">
+            <key column="STOCK_ID"/>
+            <list-index column="POSITION"/>
+            <one-to-many class="com.hibernate.common.StockHistory"/>
+        </list>
     </class>
 </hibernate-mapping>

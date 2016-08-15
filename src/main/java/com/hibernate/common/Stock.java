@@ -1,12 +1,9 @@
 package com.hibernate.common;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Created by fcalderon on 8/12/16.
- */
 /*@Entity
 @Table(name = "stock")*/
 public class Stock implements Serializable {
@@ -15,8 +12,11 @@ public class Stock implements Serializable {
     private Integer stockId;
     private String stockCode;
     private String stockName;
+    private List<StockHistory> stockHistoryList = new ArrayList<StockHistory>();
+    private ProteinData proteinData;
 
     public Stock() {
+        setProteinData(new ProteinData());
     }
 
     public Stock(Integer id, String stockCode, String stockName) {
@@ -52,5 +52,27 @@ public class Stock implements Serializable {
 
     public void setStockName(String stockName) {
         this.stockName = stockName;
+    }
+
+    public List<StockHistory> getStockHistoryList() {
+        return stockHistoryList;
+    }
+
+    public void setStockHistoryList(List<StockHistory> stockHistoryList) {
+        this.stockHistoryList = stockHistoryList;
+    }
+
+    public ProteinData getProteinData() {
+        return proteinData;
+    }
+
+    public void setProteinData(ProteinData proteinData) {
+        this.proteinData = proteinData;
+        proteinData.setStock(this);
+    }
+
+    public void addStockHistoryList(StockHistory stockHistoryList) {
+        stockHistoryList.setStock(this);
+        this.stockHistoryList.add(stockHistoryList);
     }
 }
