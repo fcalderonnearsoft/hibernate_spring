@@ -13,22 +13,22 @@ public class App {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         session.beginTransaction();
-        Stock stock = new Stock();
 
-        stock.setStockCode("9");
-        stock.setStockName("Po");
+        Stock stock = new Stock();
+        stock.setStockCode("JUU");
+        stock.setStockName("OI");
+
+
+        Stock stock1 = new Stock();
+        stock1.setStockCode("JUU");
+        stock1.setStockName("OI");
+
 
         session.save(stock);
-        session.getTransaction().commit();
-
-
-        session.beginTransaction();
-        Stock stock1 = new Stock();
-        stock1.setStockCode("9");
-        stock1.setStockName("Po");
         session.save(stock1);
-        session.getTransaction().commit();
 
+        session.getTransaction().commit();
         session.close();
+        HibernateUtil.getSessionFactory().close();
     }
 }

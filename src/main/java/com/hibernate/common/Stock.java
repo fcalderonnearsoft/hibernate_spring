@@ -1,13 +1,14 @@
 package com.hibernate.common;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
  * Created by fcalderon on 8/12/16.
  */
-@Entity
-@Table(name = "stock")
+/*@Entity
+@Table(name = "stock")*/
 public class Stock implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -24,8 +25,9 @@ public class Stock implements Serializable {
         this.stockName = stockName;
     }
 
-    @Id @GeneratedValue
-    @Column(name = "STOCK_ID")
+  /*  @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "STOCK_ID")*/
     public Integer getStockId() {
         return this.stockId;
     }
@@ -34,7 +36,7 @@ public class Stock implements Serializable {
         this.stockId = stockId;
     }
 
-    @Column(name = "STOCK_CODE")
+/*    @Column(name = "STOCK_CODE")*/
     public String getStockCode() {
         return this.stockCode;
     }
@@ -43,7 +45,7 @@ public class Stock implements Serializable {
         this.stockCode = stockCode;
     }
 
-    @Column(name = "STOCK_NAME")
+   /* @Column(name = "STOCK_NAME")*/
     public String getStockName() {
         return this.stockName;
     }
