@@ -5,7 +5,7 @@
 
 <hibernate-mapping>
     <class name="com.hibernate.common.ProteinData" table="protein_data">
-        <id name="id" type="int" column="id">
+        <id name="id" type="int" column="STOCK_ID">
             <generator class="foreign">
                 <param name="property">stock</param>
             </generator>

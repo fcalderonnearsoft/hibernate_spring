@@ -18,9 +18,9 @@
 
         <property name="show_sql">true</property>
 
-        <mapping resource="Stock.hbm.xml"></mapping>
-        <mapping resource="StockHistory.hbm.xml"></mapping>
         <mapping resource="ProteinData.hbm.xml"></mapping>
+        <mapping resource="StockHistory.hbm.xml"></mapping>
+        <mapping resource="Stock.hbm.xml"></mapping>
         <!--<mapping class="com.hibernate.common.Stock"></mapping>-->
 
     </session-factory>
