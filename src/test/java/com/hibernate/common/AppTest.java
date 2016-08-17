@@ -2,12 +2,11 @@ package com.hibernate.common;
 
 import com.hibernate.persistence.HibernateUtil;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class AppTest {
 
